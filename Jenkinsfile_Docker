@@ -1,10 +1,10 @@
 pipeline {
     agent any
     environment {
-        AWS_ACCOUNT_ID="216517736163"
-        AWS_DEFAULT_REGION="us-east-2"
-        IMAGE_REPO_NAME="jenkinspro"
-        IMAGE_TAG="v1"
+        AWS_ACCOUNT_ID="938409552826"
+        AWS_DEFAULT_REGION="ap-south-1"
+        IMAGE_REPO_NAME="projecjenkins"
+        IMAGE_TAG="latest"
         REPOSITORY_URI = "${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_DEFAULT_REGION}.amazonaws.com/${IMAGE_REPO_NAME}"
     }
    
@@ -21,7 +21,7 @@ pipeline {
         
         stage('Cloning Git') {
             steps {
-                checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: '', url: 'https://github.com/sd031/aws_codebuild_codedeploy_nodeJs_demo.git']]])     
+                checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/DhawalAgarwal01/jenkinspro.git']]])     
             }
         }
   
